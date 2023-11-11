@@ -18,7 +18,7 @@ public class StaffManager extends Manager {
     public void execute(int command) {
         switch (command) {
             case 1:
-                addEmployee();
+                addEmployee(-1);
             case 2:
                 edit();
             case 3:
@@ -36,11 +36,15 @@ public class StaffManager extends Manager {
         }
     }
 
-    private void addEmployee() {
+    private void addEmployee(int edit) {
         System.out.println("Adding a new employee:");
 
-        System.out.println("Enter ID:");
-        int ID = UserInterface.getIntegerInput();
+        int ID = edit;
+
+        if (edit == -1) {
+            System.out.println("Enter ID:");
+             ID = UserInterface.getIntegerInput();
+        }
 
         System.out.println("Enter Name:");
         String name = UserInterface.getInput();
@@ -67,7 +71,7 @@ public class StaffManager extends Manager {
         int ID = UserInterface.getIntegerInput();
         if (StaffService.getMap().containsKey(ID)) {
             // UNFINISHED TODO
-            addEmployee();
+            addEmployee(ID);
         } else {
             System.out.println("Employee with ID " + ID + " not found.");
         }
