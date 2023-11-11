@@ -56,7 +56,7 @@ public class StaffManager extends Manager {
         System.out.println("Enter Salary:");
         double salary = UserInterface.getDoubleInput();
 
-        Employee newEmployee = EmployeeCreator.addEmployee(ID, name, startDate, department, role, salary);
+        EmployeeCreator.addEmployee(ID, name, startDate, department, role, salary);
         System.out.println("Employee added successfully!");
 
     }
